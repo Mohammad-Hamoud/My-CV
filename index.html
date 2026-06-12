@@ -4,18 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mohammad Hamoud — HR Operations Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d0d0d;
-    --surface: #161616;
-    --surface2: #1e1e1e;
-    --border: #2a2a2a;
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: #222222;
     --accent: #7B9FE0;
-    --accent2: #4a7fd4;
-    --text: #e8e8e8;
+    --accent-dim: rgba(123,159,224,0.12);
+    --accent-glow: rgba(123,159,224,0.05);
+    --text: #EDEDED;
     --text-secondary: #888;
-    --text-muted: #555;
+    --text-muted: #444;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,13 +24,12 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Tajawal', sans-serif;
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
-  /* RTL Support */
-  body.ar { direction: rtl; font-family: 'Segoe UI', Tahoma, sans-serif; }
+  body.ar { direction: rtl; }
 
   /* Language Toggle */
   .lang-toggle {
@@ -52,11 +52,12 @@
     background: transparent;
     color: var(--text-secondary);
     transition: all 0.2s;
-    letter-spacing: 0.5px;
+    font-family: 'Tajawal', sans-serif;
   }
   .lang-btn.active {
     background: var(--accent);
-    color: #fff;
+    color: #0a0a0a;
+    font-weight: 700;
   }
 
   /* Hero */
@@ -65,7 +66,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px 60px 60px;
+    padding: 80px 64px 80px;
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
@@ -73,101 +74,129 @@
   .hero::before {
     content: '';
     position: absolute;
-    top: -200px;
-    left: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(123,159,224,0.07) 0%, transparent 70%);
+    top: -300px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%);
     pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.4;
   }
   .hero-label {
     font-size: 11px;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 28px;
+    margin-bottom: 32px;
     font-weight: 500;
   }
   .hero-name {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(52px, 8vw, 96px);
+    font-size: clamp(56px, 9vw, 104px);
     line-height: 1.0;
     color: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     letter-spacing: -2px;
+    font-weight: 700;
+  }
+  body.ar .hero-name {
+    letter-spacing: 0;
+    font-size: clamp(48px, 7vw, 88px);
   }
   .hero-role {
-    font-size: 18px;
+    font-size: 17px;
     color: var(--text-secondary);
     font-weight: 300;
-    margin-bottom: 48px;
-    max-width: 500px;
+    margin-bottom: 52px;
+    max-width: 520px;
+    line-height: 1.8;
   }
   .hero-contact {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 28px;
   }
   .contact-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 13px;
     color: var(--text-secondary);
     text-decoration: none;
+    transition: color 0.2s;
   }
   .contact-item:hover { color: var(--accent); }
   .contact-dot {
-    width: 6px; height: 6px;
+    width: 5px; height: 5px;
     border-radius: 50%;
     background: var(--accent);
     flex-shrink: 0;
   }
   .hero-stats {
     position: absolute;
-    bottom: 60px;
-    right: 60px;
+    bottom: 64px;
+    right: 64px;
     display: flex;
-    gap: 48px;
+    gap: 52px;
   }
+  body.ar .hero-stats { right: auto; left: 64px; }
   .stat { text-align: right; }
+  body.ar .stat { text-align: left; }
   .stat-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    color: #fff;
+    font-size: 40px;
+    color: var(--accent);
     line-height: 1;
+    font-weight: 700;
   }
-  .stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 1px; margin-top: 4px; }
+  .stat-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
 
   /* Sections */
   .section {
-    padding: 80px 60px;
+    padding: 88px 64px;
     border-bottom: 1px solid var(--border);
   }
   .section-header {
     display: flex;
-    align-items: baseline;
-    gap: 20px;
-    margin-bottom: 56px;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 64px;
   }
   .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
+    font-size: 28px;
     color: #fff;
+    font-weight: 700;
+    white-space: nowrap;
   }
   .section-line {
     flex: 1;
     height: 1px;
-    background: var(--border);
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+  body.ar .section-line {
+    background: linear-gradient(270deg, var(--border), transparent);
   }
 
   /* Experience */
   .exp-item {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 40px;
-    margin-bottom: 56px;
-    padding-bottom: 56px;
+    grid-template-columns: 220px 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    padding-bottom: 64px;
     border-bottom: 1px solid var(--border);
   }
   .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -181,49 +210,50 @@
   }
   .exp-company {
     font-size: 13px;
-    color: var(--text-secondary);
+    color: var(--text-muted);
+    font-weight: 400;
   }
   .exp-title {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 19px;
+    font-weight: 700;
     color: #fff;
-    margin-bottom: 16px;
-  }
-  .exp-subtitle {
-    font-size: 13px;
-    color: var(--accent);
-    margin-bottom: 16px;
-    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.4;
   }
   .exp-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 28px;
   }
   .exp-list li {
     font-size: 13px;
     color: var(--text-secondary);
-    padding-right: 16px;
+    padding-left: 16px;
     position: relative;
+    line-height: 1.6;
   }
   .exp-list li::before {
-    content: '—';
+    content: '';
     position: absolute;
-    right: 0;
-    color: var(--text-muted);
-    font-size: 11px;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
   }
-  body:not(.ar) .exp-list li { padding-right: 0; padding-left: 16px; }
-  body:not(.ar) .exp-list li::before { right: auto; left: 0; }
+  body.ar .exp-list li { padding-left: 0; padding-right: 16px; }
+  body.ar .exp-list li::before { left: auto; right: 0; }
 
   .achievements-label {
-    font-size: 11px;
-    letter-spacing: 2px;
+    font-size: 10px;
+    letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--accent);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     font-weight: 500;
   }
   .achievement-tags {
@@ -233,32 +263,39 @@
   }
   .tag {
     font-size: 12px;
-    padding: 4px 12px;
+    padding: 5px 14px;
     border-radius: 100px;
-    border: 1px solid var(--border);
-    color: var(--text-secondary);
+    border: 1px solid #2a2a2a;
+    color: var(--text-muted);
     background: var(--surface);
+    transition: all 0.2s;
+  }
+  .tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
   }
 
   /* Skills */
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
     gap: 12px;
   }
   .skill-item {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 16px 20px;
+    border-radius: 10px;
+    padding: 18px 22px;
     font-size: 13px;
     color: var(--text-secondary);
     transition: all 0.2s;
+    cursor: default;
   }
   .skill-item:hover {
     border-color: var(--accent);
     color: var(--accent);
-    background: rgba(123,159,224,0.05);
+    background: var(--accent-dim);
   }
 
   /* Education */
@@ -270,42 +307,50 @@
   .edu-item {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 28px;
+    border-radius: 14px;
+    padding: 32px;
     transition: border-color 0.2s;
   }
   .edu-item:hover { border-color: var(--accent); }
-  .edu-year { font-size: 12px; color: var(--accent); letter-spacing: 1px; margin-bottom: 10px; font-weight: 500; }
-  .edu-degree { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .edu-year {
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .edu-degree {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
   .edu-institution { font-size: 13px; color: var(--text-secondary); }
 
   /* Footer */
   footer {
-    padding: 40px 60px;
+    padding: 44px 64px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   footer span { font-size: 13px; color: var(--text-muted); }
+  .footer-accent { color: var(--accent); font-weight: 500; }
 
   /* Mobile */
   @media (max-width: 768px) {
     .hero, .section { padding: 60px 24px; }
-    .hero-stats { position: static; margin-top: 48px; justify-content: flex-start; }
+    .hero-stats { position: static; margin-top: 52px; justify-content: flex-start; gap: 36px; }
+    body.ar .hero-stats { left: auto; }
     .exp-item { grid-template-columns: 1fr; gap: 16px; }
-    footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 10px; text-align: center; }
     .lang-toggle { top: 16px; right: 16px; }
   }
-
-  /* Arabic overrides */
-  body.ar .exp-list li { padding-right: 16px; padding-left: 0; }
-  body.ar .exp-list li::before { right: 0; left: auto; }
-  body.ar .hero-name { letter-spacing: 0; }
 </style>
 </head>
 <body>
 
-<!-- Language Toggle -->
 <div class="lang-toggle">
   <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
   <button class="lang-btn" onclick="setLang('ar')" id="btn-ar">AR</button>
@@ -313,9 +358,9 @@
 
 <!-- Hero -->
 <section class="hero">
-  <div class="hero-label" data-en="HR Professional · Saudi Arabia" data-ar="متخصص موارد بشرية · المملكة العربية السعودية">HR Professional · Saudi Arabia</div>
-  <h1 class="hero-name">Mohammad<br>Hamoud</h1>
-  <p class="hero-role" data-en="HR Operations Manager with 10+ years of experience in HR systems, payroll, compliance, and workforce management." data-ar="مدير عمليات موارد بشرية بخبرة تتجاوز 10 سنوات في أنظمة الموارد البشرية والرواتب والامتثال وإدارة القوى العاملة.">HR Operations Manager with 10+ years of experience in HR systems, payroll, compliance, and workforce management.</p>
+  <div class="hero-label" data-en="HR Professional · Saudi Arabia" data-ar="الموارد البشرية · المملكة العربية السعودية">HR Professional · Saudi Arabia</div>
+  <h1 class="hero-name" data-en="Mohammad<br>Hamoud" data-ar="محمد<br>حمود">Mohammad<br>Hamoud</h1>
+  <p class="hero-role" data-en="HR Operations Manager with 10+ years of experience in HR systems, payroll, compliance, and workforce management." data-ar="مدير عمليات الموارد البشرية بخبرة تتجاوز 10 سنوات في أنظمة الموارد البشرية والرواتب والامتثال وإدارة القوى العاملة.">HR Operations Manager with 10+ years of experience in HR systems, payroll, compliance, and workforce management.</p>
   <div class="hero-contact">
     <a class="contact-item" href="mailto:Phys.Mohammad@gmail.com"><span class="contact-dot"></span>Phys.Mohammad@gmail.com</a>
     <a class="contact-item" href="tel:0505611489"><span class="contact-dot"></span>0505611489</a>
@@ -325,15 +370,15 @@
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-num">10+</div>
-      <div class="stat-label" data-en="YEARS EXP." data-ar="سنوات خبرة">YEARS EXP.</div>
+      <div class="stat-label" data-en="Years Exp." data-ar="سنوات خبرة">Years Exp.</div>
     </div>
     <div class="stat">
       <div class="stat-num">3</div>
-      <div class="stat-label" data-en="COMPANIES" data-ar="شركات">COMPANIES</div>
+      <div class="stat-label" data-en="Companies" data-ar="شركات">Companies</div>
     </div>
     <div class="stat">
       <div class="stat-num">12+</div>
-      <div class="stat-label" data-en="PROJECTS" data-ar="مشاريع منجزة">PROJECTS</div>
+      <div class="stat-label" data-en="Projects" data-ar="مشاريع">Projects</div>
     </div>
   </div>
 </section>
@@ -345,10 +390,9 @@
     <div class="section-line"></div>
   </div>
 
-  <!-- Savola HR Ops Manager -->
   <div class="exp-item">
     <div class="exp-meta">
-      <div class="exp-period">2022 — <span data-en="Present" data-ar="حتى الآن">Present</span></div>
+      <div class="exp-period" data-en="Jan 2022 — Present" data-ar="يناير 2022 — حتى الآن">Jan 2022 — Present</div>
       <div class="exp-company">Savola Foods</div>
     </div>
     <div>
@@ -363,7 +407,7 @@
         <li data-en="Prepare 12 monthly reports including manpower, Saudization, and turnover" data-ar="إعداد 12 تقريراً شهرياً تشمل القوى العاملة والسعودة ومعدل دوران الموظفين">Prepare 12 monthly reports including manpower, Saudization, and turnover</li>
         <li data-en="Lead team performance management through SMART KPIs bi-annually" data-ar="قيادة إدارة أداء الفريق من خلال مؤشرات الأداء الذكية مرتين سنوياً">Lead team performance management through SMART KPIs bi-annually</li>
       </ul>
-      <div class="achievements-label" data-en="KEY ACHIEVEMENTS" data-ar="أبرز الإنجازات">KEY ACHIEVEMENTS</div>
+      <div class="achievements-label" data-en="Key Achievements" data-ar="أبرز الإنجازات">Key Achievements</div>
       <div class="achievement-tags">
         <span class="tag" data-en="0% Invoice Delays" data-ar="صفر تأخير في الفواتير">0% Invoice Delays</span>
         <span class="tag" data-en="Oracle EBS → Fusion Migration" data-ar="نقل من Oracle EBS إلى Fusion">Oracle EBS → Fusion Migration</span>
@@ -377,10 +421,9 @@
     </div>
   </div>
 
-  <!-- Talent Acquisition Supervisor -->
   <div class="exp-item">
     <div class="exp-meta">
-      <div class="exp-period">2019 — 2021</div>
+      <div class="exp-period" data-en="Dec 2019 — Dec 2021" data-ar="ديسمبر 2019 — ديسمبر 2021">Dec 2019 — Dec 2021</div>
       <div class="exp-company">Savola Foods</div>
     </div>
     <div>
@@ -392,7 +435,7 @@
         <li data-en="Closed all recruitment needs within 30 days" data-ar="إغلاق جميع احتياجات التوظيف في غضون 30 يوماً">Closed all recruitment needs within 30 days</li>
         <li data-en="Maintained HRDF programs and monthly reporting" data-ar="إدارة برامج صندوق تنمية الموارد البشرية وإعداد التقارير الشهرية">Maintained HRDF programs and monthly reporting</li>
       </ul>
-      <div class="achievements-label" data-en="KEY ACHIEVEMENTS" data-ar="أبرز الإنجازات">KEY ACHIEVEMENTS</div>
+      <div class="achievements-label" data-en="Key Achievements" data-ar="أبرز الإنجازات">Key Achievements</div>
       <div class="achievement-tags">
         <span class="tag" data-en="30-Day Recruitment Closure" data-ar="إغلاق التوظيف في 30 يوماً">30-Day Recruitment Closure</span>
         <span class="tag" data-en="Job Offers Automation Sheet" data-ar="أتمتة نموذج عروض العمل">Job Offers Automation Sheet</span>
@@ -401,10 +444,9 @@
     </div>
   </div>
 
-  <!-- Basamh Group -->
   <div class="exp-item">
     <div class="exp-meta">
-      <div class="exp-period">2015 — 2019</div>
+      <div class="exp-period" data-en="Sep 2015 — Dec 2019" data-ar="سبتمبر 2015 — ديسمبر 2019">Sep 2015 — Dec 2019</div>
       <div class="exp-company">Basamh Group | SMFF</div>
     </div>
     <div>
@@ -412,10 +454,10 @@
       <ul class="exp-list">
         <li data-en="Managed end-to-end recruitment and candidate pipeline" data-ar="إدارة التوظيف الشامل وخط أنابيب المرشحين">Managed end-to-end recruitment and candidate pipeline</li>
         <li data-en="Created onboarding plans for every new hire" data-ar="إعداد خطط إلحاق مخصصة لكل موظف جديد">Created onboarding plans for every new hire</li>
-        <li data-en="Maintained organized records and HR files with zero errors" data-ar="الحفاظ على سجلات موارد بشرية منظمة بدون أخطاء">Maintained organized records and HR files with zero errors</li>
+        <li data-en="Maintained organized records and HR files with zero errors" data-ar="الحفاظ على سجلات موارد بشرية منظمة بدون أخطاء">Maintained organized records and HR files withدون أخطاء</li>
         <li data-en="Participated in SAP system migration project" data-ar="المشاركة في مشروع الانتقال إلى نظام SAP">Participated in SAP system migration project</li>
       </ul>
-      <div class="achievements-label" data-en="KEY ACHIEVEMENTS" data-ar="أبرز الإنجازات">KEY ACHIEVEMENTS</div>
+      <div class="achievements-label" data-en="Key Achievements" data-ar="أبرز الإنجازات">Key Achievements</div>
       <div class="achievement-tags">
         <span class="tag" data-en="Created Perfetto Job Application Form" data-ar="تصميم نموذج طلب توظيف Perfetto">Created Perfetto Job Application Form</span>
         <span class="tag" data-en="SAP Migration" data-ar="الانتقال إلى نظام SAP">SAP Migration</span>
@@ -444,7 +486,7 @@
     <div class="edu-item">
       <div class="edu-year">2011</div>
       <div class="edu-degree" data-en="English Language Program" data-ar="برنامج اللغة الإنجليزية">English Language Program</div>
-      <div class="edu-institution" data-en="EC English Center, Cape Town, South Africa" data-ar="مركز EC للغة الإنجليزية، كيب تاون، جنوب أفريقيا">EC English Center, Cape Town, South Africa</div>
+      <div class="edu-institution" data-en="EC English Center — Cape Town, South Africa" data-ar="مركز EC للغة الإنجليزية — كيب تاون، جنوب أفريقيا">EC English Center — Cape Town, South Africa</div>
     </div>
   </div>
 </section>
@@ -473,8 +515,8 @@
 
 <!-- Footer -->
 <footer>
-  <span data-en="Mohammad Hamoud · HR Operations Manager" data-ar="محمد حمود · مدير عمليات الموارد البشرية">Mohammad Hamoud · HR Operations Manager</span>
-  <span data-en="Saudi Arabia" data-ar="المملكة العربية السعودية">Saudi Arabia</span>
+  <span data-en="Mohammad Hamoud · HR Operations Manager" data-ar="محمد حمود · الموارد البشرية">Mohammad Hamoud · HR Operations Manager</span>
+  <span class="footer-accent">CIPD Assoc.</span>
 </footer>
 
 <script>
@@ -497,9 +539,12 @@
       btnAr.classList.remove('active');
     }
 
-    // Switch all text
     document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-      el.textContent = el.getAttribute('data-' + lang);
+      if (el.tagName === 'H1') {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      } else {
+        el.textContent = el.getAttribute('data-' + lang);
+      }
     });
   }
 </script>
